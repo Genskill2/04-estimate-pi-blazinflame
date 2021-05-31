@@ -10,6 +10,7 @@ float wallis_pi(int limit)
   int i;
   for(i = 1; i <= limit; i++)
   {
+   
     square = i * i;
     number = 4 * square;
     pi = pi * number / (number - 1);
