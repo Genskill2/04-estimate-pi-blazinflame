@@ -8,12 +8,12 @@ float wallis_pi(int limit)
   float square, number; 
   float pi = 1.0;
   int i;
-  for(i = 0; i <= limit; i++)
+  for(i = 1; i <= limit; i++)
   {
    
-    square = i * i;
+    square = (float)i * (float)i;
     number = 4 * square;
-    pi = pi * number / (number - 1);
+    pi = pi * (number / (number - 1));
   }
   return pi * 2;
 }
@@ -21,7 +21,7 @@ float wallis_pi(int limit)
 int main(void)
 {
   float pi;
-  for (int i=0; i<5; i++)
+  for (int i=1; i<=5; i++)
   {
     pi = wallis_pi(i);
     //function call
@@ -42,4 +42,3 @@ int main(void)
     }
   }
 }
-
