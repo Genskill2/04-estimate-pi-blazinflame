@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <math.h>
 
-float mc_pi(int);
+
 
 float frandom() 
 {
@@ -11,6 +11,27 @@ float frandom()
   float ret = (float)q/(float)RAND_MAX;
   return ret;
 }
+
+float mc_pi(int points)
+{
+  int i;
+  float number=0.0;
+  float a,b,r,pivalue;
+  for (i = 0; i <= points; i++)
+  {
+    a = frandom();
+    b = frandom();
+    r = sqrt ((a * a) + (b * b));
+    if(r < 1)
+    {
+      number++;
+    }
+  }
+    
+    pivalue = ((4 * number) / points);
+      return pivalue;
+}
+
 
 
 
@@ -47,25 +68,6 @@ int main(void)
   }
 }
 
-float mc_pi(int points)
-{
-  int i;
-  float number=0.0;
-  float a,b,r,pivalue;
-  for (i = 0; i <= points; i++)
-  {
-    a = frandom();
-    b = frandom();
-    r = sqrt ((a * a) + (b * b));
-    if(r < 1)
-    {
-      number++;
-    }
-  }
-    
-    pivalue = ((4 * number) / points);
-      return pivalue;
-}
 
 
 
