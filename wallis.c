@@ -2,13 +2,26 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
-
-float wallis_pi(int);
+//wallis function definition and declaration
+float wallis_pi(int limit)
+{
+  float square, number; 
+  float pi = 1.0;
+  int i;
+  for(i = 1; i <= limit; i++)
+  {
+    square = i * i;
+    number = 4 * square;
+    pi = pi * number / (number - 1);
+  }
+  return pi * 2;
+}
 
 int main(void) {
   float pi;
   for (int i=0; i<5; i++) {
     pi = wallis_pi(i);
+    //function call
     if (!(fabs(pi - M_PI) > 0.15)) {
       printf("Estimate with just %d iterations is %f which is too accurate.\n", i, pi);
       abort();
