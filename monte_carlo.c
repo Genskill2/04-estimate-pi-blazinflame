@@ -15,20 +15,23 @@ float frandom()
 float mc_pi(int points)
 {
   int i;
-  float number=0.0;
-  float a,b,r,pivalue;
+  int number=0;
+  float a=0.0; //coordinates for using the function frandom
+  float b=0.0;
+  float r; //radius of the circle
+  float pivalue;
   for (i = 0; i <= points; i++)
   {
     a = frandom();
     b = frandom();
-    r = sqrt ((a * a) + (b * b));
+    r = sqrt ((a * a) + (b * b)); // using straight line equation to find the distance between points (a,b) and (0,0)
     if(r < 1)
     {
-      number++;
+      number = number + 1;
     }
   }
     
-    pivalue = ((4 * number) / points);
+    pivalue = (float)(4 * number) / points;
       return pivalue;
 }
 
